@@ -1,0 +1,65 @@
+
+{% extends "template.html" %}
+{% set active_page = "index" %}
+    {% block content %}
+    <div  class="form-group col-md-9">
+        <h1>{{appname}}</h1>
+
+        <form action="/" method="POST">
+            <div  class="form-group col-md-12">
+
+            <div class="form-group col-md-4">
+            <label>Current Monthly fare</label>
+                <input type="text" class="form-control" id="monthlyfare" name="monthlyfare" placeholder="default is ${{ monthlyfare }}{{c_monthlyfare}}">
+            </div>
+            <div class="form-group col-md-4">
+            
+                <label>Current Ten-pass Fare</label>
+                <input type="text" class="form-control" id="tenpassfare" name="tenpassfare" placeholder="default is ${{ tenpassfare }}{{c_tenpassfare}}">
+            </div>
+            <div class="form-group col-md-4">
+            
+                <label>Current Daily Fare</label>
+                <input type="text" class="form-control" id="dailyfare" name="dailyfare" placeholder="default is ${{ dailyfare }}{{ c_dailyfare }}">
+            </div>
+            </div>
+            <div  class="form-group col-md-12">
+
+                <div class="form-group col-md-6">
+                
+                    <label>For Which Month?</label>
+                    <input type="month" class="form-control" id="currentyearmonth" name="currentyearmonth" value="{{ currentyear }}-{{ currentmonth }}">
+                </div>
+                <div class="form-group col-md-6">
+                
+                    <label>Number of Holidays in Month?</label>
+                    <input type="text" class="form-control" id="holidays" name="holidays" placeholder="default = {{ holidays }}">
+                </div>
+            </div>
+            <div class="form-group col-md-12 p-6">
+                <input class="btn btn-orange fixedsize pull-left" type="submit" value="Calculate">
+                <a href="\" class="btn btn-orange fixedsize pull-left p-4" >Reset</a>
+
+            </div>
+        </form>        
+    </div>
+
+    <div  class="col-md-3">
+        <div class="{{resultdiv}}">
+            <h3>Calculations for {{currentyear}} {{currentmonthtext}}</h3>
+            <p>Days in the month: {{daysinmonth}}
+                <br/>Bus travel days: <strong>{{travel_days}}</strong></p>
+            <p class="results"><strong>Monthly</strong>
+                <br/><span class ="text-danger">{{c_monthlyfare}}</span> per pass (per month)
+                <br/><span class = "text-success">{{monthly_perday}}</span> per day</p>
+            <p class="results"><span class="results"><strong>Ten Pass</strong>
+                <br/>{{c_tenpassfare}} per pass
+                <br/><span class = "text-success">{{tenpass_perday}}</span> per day
+                <br/><span class = "text-danger">{{tenpasscostpermonth}}</span> per month</p>
+            <p class="results"><p class="results"><strong>Single Ticket</strong>
+                <br/>{{c_dailyfare}} per ticket
+                <br/><span class = "text-success">{{daily_perday}}</span> per day
+                <br/><span class ="text-danger">{{dailycostpermonth}}</span> per month</p>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+	<meta charset="utf-8">
+	{% if title %}
+		<title>{{ title }}</title>
+	{% else %}
+		<title>{{appname}}</title>
+	{% endif %}
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js">
+	</script>
+</head>
+<body>
+	<div class="wrapperindex">
+		<div class="container-fluid ">
+			<div class="page-header clearfix">
+				<div >
+					<a href="https://astart.ca"><img src="static\images\ets.png" width="100"></a>
+				</div>
+	
+			</div>
+			
+
+			{% block content %}
+			<!-- insert content from sub-templates -->
+			{% endblock %}
+		</div>
+		<div class="pagefooter col-md-12 text-muted">
+			<p>Version 0.0.2 (alpha)-2021</p>
+		</div>
+	</div>
+</body>
+</html>
