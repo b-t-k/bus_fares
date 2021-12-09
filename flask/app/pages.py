@@ -88,7 +88,7 @@ def echo():
 
         # set daily
         finaldaycount = monthdays - holidays
-        monthlycostperday = monthlyfare/(finaldaycount)
+        monthlycostperday = int(monthlyfare)/(finaldaycount)
         tenpasscostperday = (float(tenpassfare)/10)*2
         tenpasscostpermonth = tenpasscostperday * finaldaycount
         dailyperday = dailyfare * 2
@@ -96,7 +96,7 @@ def echo():
 
         daysinmonth = str(daysinmonthcount)
         travel_days = str(finaldaycount)
-        monthlyfare = "${:.2f}".format(monthlyfare)
+        monthlyfare = "${:.2f}".format(int(monthlyfare))
         monthly_perday = "${:.2f}".format(monthlycostperday)
         tenpassfare = "${:.2f}".format(tenpassfare)
         tenpass_perday = "${:.2f}".format(tenpasscostperday)
