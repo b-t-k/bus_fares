@@ -16,7 +16,7 @@ currentyear = date.today().year
 
 @app.route("/")
 def home():
-    return render_template("index.html",  monthlyfare=default_monthlyfare, tenpassfare=default_tenpassfare, dailyfare=default_dailyfare, holidays=default_holidays, currentyear=currentyear, currentmonth=currentmonth, resultdiv="blockhidden")
+    return render_template("index.html",  monthlyfare="default is $" + str(default_monthlyfare), tenpassfare="default is $" + str(default_tenpassfare), dailyfare="default is $" + str(default_dailyfare), holidays=default_holidays, currentyear=currentyear, currentmonth=currentmonth, resultdiv="blockhidden")
 
 
 # Main Search routine using home page
